@@ -2052,6 +2052,10 @@ func (client *Client) CondMapRemove(spacename string, key Value, predicates []Pr
 	return client.AsynccallSpacenameKeyPredicatesAttributesStatus(stub_cond_map_remove, spacename, key, predicates, attributes)
 }
 
+func stub_document_atomic_add(client *C.struct_hyperdex_client, space *C.char, key *C.char, key_sz C.size_t, docattrs *C.struct_hyperdex_client_map_attribute, docattrs_sz C.size_t, status *C.enum_hyperdex_client_returncode) int64 {
+	return int64(C.hyperdex_client_document_atomic_add(client, space, key, key_sz, docattrs, docattrs_sz, status))
+}
+
 func stub_map_atomic_add(client *C.struct_hyperdex_client, space *C.char, key *C.char, key_sz C.size_t, mapattrs *C.struct_hyperdex_client_map_attribute, mapattrs_sz C.size_t, status *C.enum_hyperdex_client_returncode) int64 {
 	return int64(C.hyperdex_client_map_atomic_add(client, space, key, key_sz, mapattrs, mapattrs_sz, status))
 }
