@@ -3,7 +3,7 @@ package hyperdex
 import (
 	"testing"
 
-	. "github.com/rescrv/HyperDex/bindings/go/client"
+	. "github.com/glycerine/HyperDex/bindings/go/client"
 )
 
 const (
@@ -62,7 +62,8 @@ func init() {
 
 	err = admin.RemoveSpace(`profiles`)
 	if err != nil {
-		if err.Error() != "Error 8777: cannot rm space: does not exist" {
+		if err.Error() != "Error 8777: cannot rm space: does not exist" &&
+			err.Error() != "unknown hyperdex_client_returncode: cannot rm space: does not exist" {
 			panic(err)
 		}
 	}
