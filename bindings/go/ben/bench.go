@@ -101,6 +101,10 @@ func main() {
 	setupStuff()
 	write()
 
+	// with 1 daemon,
+	// 6.25469113s for 10k writes => 1600 writes/sec.
+
+	// with 3 daemons: 3x slower
 	// results so far, trying to write or update 10k times.
 	// 1st run: 10k writes in 15 seconds => 666.67 writes/second
 	// 2nd run interrupted with:
