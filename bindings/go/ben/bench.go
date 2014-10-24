@@ -98,8 +98,12 @@ func write() {
 }
 
 func main() {
-	setupStuff()
-	write()
+	for i := 0; i < 100; i++ {
+		setupStuff()
+		for k := 0; k < 10; k++ {
+			write()
+		}
+	}
 
 	// with 1 daemon,
 	// 6.25469113s for 10k writes => 1600 writes/sec.
