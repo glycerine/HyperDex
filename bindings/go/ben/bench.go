@@ -100,6 +100,12 @@ func write() {
 func main() {
 	setupStuff()
 	write()
-	// panic: HYPERDEX_CLIENT_RECONFIGURE: reconfiguration affecting virtual_server(13995)/server(6235075844444110843)
 
+	// results so far, trying to write or update 10k times.
+	// 1st run: 10k writes in 15 seconds => 666.67 writes/second
+	// 2nd run interrupted with:
+	// panic: HYPERDEX_CLIENT_RECONFIGURE: reconfiguration affecting virtual_server(13995)/server(6235075844444110843)
+	// 3rd run: appears to hang forever
+	// 4th run: hangs forever
+	// 5th run: reduce write count to 10: still hangs forever.
 }
